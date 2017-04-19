@@ -4,9 +4,10 @@ require 'player'
 describe 'Plays a game' do
 
   describe State do
-    subject(:state){described_class.new}
+
     subject(:player_one){Player.new}
     subject(:player_two){Player.new}
+    subject(:state){described_class.new(player_one.plays)}
 
     it 'notifies of a won game' do
       player_one.choose(:a)
@@ -14,7 +15,7 @@ describe 'Plays a game' do
       player_one.choose(:e)
       player_two.choose(:f)
       player_one.choose(:i)
-      expect(state.check?).to eq(true)
+      expect(state.win?).to eq(true)
     end
 
   end
