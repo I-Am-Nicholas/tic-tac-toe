@@ -4,12 +4,12 @@ class State
 
   include WinningCombos
 
-def initialize(plays)
-  @plays = plays
-end
+  def initialize(plays)
+    @plays = plays
+  end
 
   def win?
-    WINNING_COMBOS.include?(@plays)
+    WINNING_COMBOS.one?{|m| m.uniq.sort == @plays.uniq.sort}
   end
 
 end
