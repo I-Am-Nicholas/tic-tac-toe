@@ -1,5 +1,6 @@
 require 'state'
 require 'player'
+require 'game_engine'
 
 describe 'Plays a game' do
 
@@ -27,6 +28,20 @@ describe 'Plays a game' do
       expect(player_one_state.win?).to eq(false)
     end
 
+    describe GameEngine do
+      subject(:game_engine){described_class.new}
+
+      it 'disallows play after game over' do
+        player_one.choose(:a)
+        player_two.choose(:d)
+        player_one.choose(:e)
+        player_two.choose(:f)
+        player_one.choose(:i)
+        player_two.choose(:g)
+        expect{ game_engine.play }.to raise_error "Sorry. Game Over."
+      end
+
+    end
 
   end
 

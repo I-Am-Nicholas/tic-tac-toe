@@ -9,6 +9,9 @@ class Player
 
   def choose(choice)
     @plays << choice
+  end
+
+  def plays_to_state
     State.new(@plays)
   end
 
