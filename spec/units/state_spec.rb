@@ -4,46 +4,96 @@ describe State do
     subject(:player_one){Player.new}
     subject(:state){described_class.new(player_one.plays)}
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:a)
-      player_one.choose(:b)
-      player_one.choose(:c)
-      expect(state.win?).to eq(true)
+    describe 'Winning line' do
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:a)
+        player_one.choose(:b)
+        player_one.choose(:c)
+        expect(state.win?).to eq(true)
+      end
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:a)
+        player_one.choose(:c)
+        player_one.choose(:b)
+        expect(state.win?).to eq(true)
+      end
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:b)
+        player_one.choose(:c)
+        player_one.choose(:a)
+        expect(state.win?).to eq(true)
+      end
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:b)
+        player_one.choose(:a)
+        player_one.choose(:c)
+        expect(state.win?).to eq(true)
+      end
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:c)
+        player_one.choose(:a)
+        player_one.choose(:b)
+        expect(state.win?).to eq(true)
+      end
+
+      it 'is registered as a win in any order' do
+        player_one.choose(:c)
+        player_one.choose(:b)
+        player_one.choose(:a)
+        expect(state.win?).to eq(true)
+      end
+
     end
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:a)
-      player_one.choose(:c)
-      player_one.choose(:b)
-      expect(state.win?).to eq(true)
-    end
+    describe 'Losing line' do
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:b)
-      player_one.choose(:c)
-      player_one.choose(:a)
-      expect(state.win?).to eq(true)
-    end
+      it 'is not registered in any order' do
+        player_one.choose(:a)
+        player_one.choose(:b)
+        player_one.choose(:d)
+        expect(state.win?).to eq(false)
+      end
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:b)
-      player_one.choose(:a)
-      player_one.choose(:c)
-      expect(state.win?).to eq(true)
-    end
+      it 'is not registered in any order' do
+        player_one.choose(:a)
+        player_one.choose(:d)
+        player_one.choose(:b)
+        expect(state.win?).to eq(false)
+      end
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:c)
-      player_one.choose(:a)
-      player_one.choose(:b)
-      expect(state.win?).to eq(true)
-    end
+      it 'is not registered in any order' do
+        player_one.choose(:b)
+        player_one.choose(:d)
+        player_one.choose(:a)
+        expect(state.win?).to eq(false)
+      end
 
-    it 'registers when a player selects a winning line, in any order' do
-      player_one.choose(:c)
-      player_one.choose(:b)
-      player_one.choose(:a)
-      expect(state.win?).to eq(true)
+      it 'is not registered in any order' do
+        player_one.choose(:b)
+        player_one.choose(:a)
+        player_one.choose(:d)
+        expect(state.win?).to eq(false)
+      end
+
+      it 'is not registered in any order' do
+        player_one.choose(:d)
+        player_one.choose(:a)
+        player_one.choose(:b)
+        expect(state.win?).to eq(false)
+      end
+
+      it 'is not registered in any order' do
+        player_one.choose(:d)
+        player_one.choose(:b)
+        player_one.choose(:a)
+        expect(state.win?).to eq(false)
+      end
+
     end
 
   end

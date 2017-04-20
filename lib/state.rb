@@ -9,7 +9,7 @@ class State
   end
 
   def win?
-    WINNING_COMBOS.one?{|m| m.uniq.sort == @plays.uniq.sort}
+    WINNING_COMBOS.one?{|m| m.sort == @plays.sort}
   end
 
 end
