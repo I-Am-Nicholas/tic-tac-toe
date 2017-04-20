@@ -2,7 +2,7 @@ describe State do
 
   describe 'Game' do
     subject(:player_one){Player.new}
-    subject(:state){described_class.new(player_one.plays)}
+    subject(:player_one_state){described_class.new(player_one.plays)}
 
     describe 'Winning line' do
 
@@ -10,42 +10,42 @@ describe State do
         player_one.choose(:a)
         player_one.choose(:b)
         player_one.choose(:c)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
       it 'is registered as a win in any order' do
         player_one.choose(:a)
         player_one.choose(:c)
         player_one.choose(:b)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
       it 'is registered as a win in any order' do
         player_one.choose(:b)
         player_one.choose(:c)
         player_one.choose(:a)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
       it 'is registered as a win in any order' do
         player_one.choose(:b)
         player_one.choose(:a)
         player_one.choose(:c)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
       it 'is registered as a win in any order' do
         player_one.choose(:c)
         player_one.choose(:a)
         player_one.choose(:b)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
       it 'is registered as a win in any order' do
         player_one.choose(:c)
         player_one.choose(:b)
         player_one.choose(:a)
-        expect(state.win?).to eq(true)
+        expect(player_one_state.win?).to eq(true)
       end
 
     end
@@ -56,42 +56,42 @@ describe State do
         player_one.choose(:a)
         player_one.choose(:b)
         player_one.choose(:d)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
       it 'is not registered in any order' do
         player_one.choose(:a)
         player_one.choose(:d)
         player_one.choose(:b)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
       it 'is not registered in any order' do
         player_one.choose(:b)
         player_one.choose(:d)
         player_one.choose(:a)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
       it 'is not registered in any order' do
         player_one.choose(:b)
         player_one.choose(:a)
         player_one.choose(:d)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
       it 'is not registered in any order' do
         player_one.choose(:d)
         player_one.choose(:a)
         player_one.choose(:b)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
       it 'is not registered in any order' do
         player_one.choose(:d)
         player_one.choose(:b)
         player_one.choose(:a)
-        expect(state.win?).to eq(false)
+        expect(player_one_state.win?).to eq(false)
       end
 
     end
