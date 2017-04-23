@@ -1,8 +1,8 @@
-describe State do
+describe GameState do
 
   describe 'Game' do
     subject(:player_one){Player.new}
-    subject(:player_one_state){described_class.new(player_one.plays)}
+    subject(:player_one_state){described_class.new}
 
     describe 'Winning line' do
 
@@ -52,7 +52,7 @@ describe State do
 
     describe 'Losing line' do
 
-      it 'is not registered in any order' do
+      it 'is not registered as a win in any order' do
         player_one.choose(:a)
         player_one.choose(:b)
         player_one.choose(:d)
@@ -95,6 +95,11 @@ describe State do
       end
 
     end
+
+    # it 'has a draw method' do
+    #   expect(player_one_state).to respond_to(:draw?)
+    # end
+
 
   end
 

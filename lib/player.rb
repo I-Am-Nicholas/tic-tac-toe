@@ -1,6 +1,6 @@
-require_relative './state.rb'
+require_relative './game_state.rb'
 
-class Player
+class Player < GameState
   attr_reader :plays
 
   def initialize
@@ -9,10 +9,7 @@ class Player
 
   def choose(choice)
     @plays << choice
-  end
-
-  def plays_to_state
-    State.new(@plays)
+    log()
   end
 
 end

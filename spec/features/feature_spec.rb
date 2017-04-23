@@ -1,49 +1,26 @@
-require 'state'
 require 'player'
-require 'game_engine'
 
 describe 'Plays a game' do
 
-  describe State do
+  describe Player do
 
-    subject(:player_one){Player.new}
-    subject(:player_two){Player.new}
-    subject(:player_one_state){described_class.new(player_one.plays)}
+    subject(:player){described_class.new}
 
     it 'recognises a won game' do
-      player_one.choose(:a)
-      player_two.choose(:d)
-      player_one.choose(:e)
-      player_two.choose(:f)
-      player_one.choose(:i)
-      expect(player_one_state.win?).to eq(true)
+      play = [ :a, :d, :e, :f ].each{|i| player.choose(i)}
+      expect(player.choose(:i)).to eq('You win. Game Over.')
     end
 
     it 'recognises a lost game' do
-      player_two.choose(:d)
-      player_one.choose(:a)
-      player_two.choose(:e)
-      player_one.choose(:i)
-      player_two.choose(:f)
-      expect(player_one_state.win?).to eq(false)
+      play = [ :h, :a, :d, :e, :f ].each{|i| player.choose(i)}
+      expect(player.choose(:i)).to eq('You lose. Game Over.')
     end
 
-    describe GameEngine do
-      subject(:game_engine){described_class.new}
-
-      it 'disallows play after game over' do
-        player_one.choose(:a)
-        player_two.choose(:d)
-        player_one.choose(:e)
-        player_two.choose(:f)
-        player_one.choose(:i)
-        player_two.choose(:g)
-        expect{ game_engine.play }.to raise_error "Sorry. Game Over."
-      end
-
+    it 'recognises a draw game' do
+      play = [ :a, :d, :e, :b, :g, :i, :f, :c ].each{|i| player.choose(i)}
+      expect(player.choose(:h)).to eq('Draw. Game Over.')
     end
 
   end
-
 
 end
