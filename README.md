@@ -9,7 +9,7 @@
     :d | :e | :f
     ------------
     :g | :h | :i
-
+    ------------
 Plays are entered on the command line in the following format:
 
 player.choose(:c)
@@ -67,61 +67,3 @@ On the command line the following files are required, in this order, prior to fe
 
 - Game runs on IRB but only at MVP level. Restart not yet implemented correctly, etc.
 - Invalid entry functionality needs to be added.
-
-#RSpec output
-
-Nicholass-MacBook-Pro-2:tic-tac-toe Hyper$ rspec
-
-Plays a game
-  Player
-    recognises a won game
-    recognises a lost game
-    recognises a draw game
-
-GameState
-  Lose
-    checks for a lost game
-  Player moves
-    prompts player one to play
-    prompts player one to play
-  Draw
-    checks for a draw game
-    recognises a draw
-  Won
-    checks for a won game
-    recognises a win
-
-Message
-  Displays appropriate messages
-    Notifies of a lost game
-    Notifies of a won game
-    Notifies of a draw game
-    Notifies Player One to play
-    Notifies Player Two to play
-    Notifies of an invalid play
-
-Player
-  should inherit from the GameState class
-  selection is registered
-  Gameplay
-    stores player moves in a log
-  Winning line
-    is registered as a win in any order
-    is registered as a win in any order
-    is registered as a win in any order
-    is registered as a win in any order
-    is registered as a win in any order
-    is registered as a win in any order
-  Losing line
-    is registered as a loss in any order
-    is registered as a loss in any order
-    is registered as a loss in any order
-    is registered as a loss in any order
-    is registered as a loss in any order
-    is registered as a loss in any order
-  Prompts
-    player one to play
-    player two to play
-
-Finished in 0.01856 seconds (files took 0.11351 seconds to load)
-33 examples, 0 failures
