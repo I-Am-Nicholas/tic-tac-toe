@@ -27,27 +27,49 @@ The first play represents Player One's move, the second Player Two's, the third 
 ## IN IRB...
 
 Nicholass-MacBook-Pro-2:tic-tac-toe Hyper$ cd lib
+
 Nicholass-MacBook-Pro-2:lib Hyper$ irb
+
 2.3.1 :001 > require './message.rb'
+
  => true
+
 2.3.1 :002 > require './check_combos.rb'
+
  => true
+
 2.3.1 :003 > require './game_state.rb'
+
  => true
+
 2.3.1 :004 > require './player.rb'
+
  => true
+
 2.3.1 :005 > player = Player.new
+
  => #<Player:0x007fcd0c26fdc8 @plays=[]>
+
 2.3.1 :006 > player.choose(:a)
+
  => "Player two to play."
+
 2.3.1 :007 > player.choose(:d)
+
  => "Player one to play."
+
 2.3.1 :008 > player.choose(:b)
+
  => "Player two to play."
+
 2.3.1 :009 > player.choose(:e)
+
  => "Player one to play."
+
 2.3.1 :010 > player.choose(:c)
+
  => "You win. Game Over. New game."
+ 
 
 ## Dependencies
 
