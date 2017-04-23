@@ -49,6 +49,6 @@ class GameState
   end
 
   def player_two_log
-    @game_log.select.with_index{|x, i| i.odd?}
+    @game_log - player_one_log()
   end
 end
