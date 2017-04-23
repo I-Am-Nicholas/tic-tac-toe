@@ -6,6 +6,7 @@ class GameState
 
   def log(plays)
     @game_log = plays
+    @player_log = [player_one_log, player_two_log]
     status_check()
   end
 
@@ -23,7 +24,9 @@ class GameState
   end
 
   def invalid_entry?
-    FLAT_COMBOS.none?{|i| @game_log.include?(i)}
+    FLAT_COMBOS.none? do |i|
+      @game_log.include?(i)
+    end
   end
 
   def draw?
@@ -31,11 +34,8 @@ class GameState
   end
 
   def win?
-    @player_log = [player_one_log, player_two_log]
     @player_log.each do |x|
-      WINNING_COMBOS.one? do |i|
-        return true if x.sort == i.sort
-      end
+      WINNING_COMBOS.one?{ |i| return true if x.sort == i.sort }
     end
     false
   end

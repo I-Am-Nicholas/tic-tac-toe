@@ -1,15 +1,11 @@
-require 'player'
-
 describe GameState do
   subject(:game){described_class.new}
-  subject(:player){Player.new}
-
 
   describe 'Lose' do
 
     it 'checks for a lost game' do
       double(game.log([:h, :a, :d, :b, :g, :c]))
-      expect(game.status_check).to eq('You lose. Game Over.')
+      expect(game.status_check).to eq('You lose. Game Over. New game.')
     end
 
   end
@@ -33,7 +29,7 @@ describe GameState do
 
     it 'checks for a draw game' do
       log
-      expect(game.status_check).to eq('Draw. Game Over.')
+      expect(game.status_check).to eq('Draw. Game Over. New game.')
     end
 
     it 'recognises a draw' do
@@ -48,7 +44,7 @@ describe GameState do
 
     it 'checks for a won game' do
       log
-      expect(game.status_check).to eq('You win. Game Over.')
+      expect(game.status_check).to eq('You win. Game Over. New game.')
     end
 
     it 'recognises a win' do
@@ -57,5 +53,6 @@ describe GameState do
     end
 
   end
+
 
 end

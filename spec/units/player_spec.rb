@@ -1,6 +1,7 @@
 describe Player do
   subject(:player){described_class.new}
-
+  win_msg = 'You win. Game Over. New game.'
+  lose_msg = 'You lose. Game Over. New game.'
   it 'should inherit from the GameState class' do
      expect(described_class.superclass).equal? GameState
   end
@@ -23,32 +24,32 @@ describe Player do
 
     it 'is registered as a win in any order' do
       [ :a, :g, :b, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:c)).to eq('You win. Game Over.')
+      expect(player.choose(:c)).to eq(win_msg)
     end
 
     it 'is registered as a win in any order' do
       [ :a, :g, :c, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:b)).to eq('You win. Game Over.')
+      expect(player.choose(:b)).to eq(win_msg)
     end
 
     it 'is registered as a win in any order' do
       [ :b, :g, :c, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:a)).to eq('You win. Game Over.')
+      expect(player.choose(:a)).to eq(win_msg)
     end
 
     it 'is registered as a win in any order' do
       [ :b, :g, :a, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:c)).to eq('You win. Game Over.')
+      expect(player.choose(:c)).to eq(win_msg)
     end
 
     it 'is registered as a win in any order' do
       [ :c, :g, :a, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:b)).to eq('You win. Game Over.')
+      expect(player.choose(:b)).to eq(win_msg)
     end
 
     it 'is registered as a win in any order' do
       [ :c, :g, :b, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:a)).to eq('You win. Game Over.')
+      expect(player.choose(:a)).to eq(win_msg)
     end
 
   end
@@ -57,32 +58,32 @@ describe Player do
 
     it 'is registered as a loss in any order' do
       [ :h, :c, :a, :f, :b ].each{|i| player.choose(i)}
-      expect(player.choose(:i)).to eq('You lose. Game Over.')
+      expect(player.choose(:i)).to eq(lose_msg)
     end
 
     it 'is registered as a loss in any order' do
       [ :a, :c, :d, :e, :b ].each{|i| player.choose(i)}
-      expect(player.choose(:g)).to eq('You lose. Game Over.')
+      expect(player.choose(:g)).to eq(lose_msg)
     end
 
     it 'is registered as a loss in any order' do
       [ :b, :c, :d, :f, :a ].each{|i| player.choose(i)}
-      expect(player.choose(:i)).to eq('You lose. Game Over.')
+      expect(player.choose(:i)).to eq(lose_msg)
     end
 
     it 'is registered as a loss in any order' do
       [ :b, :c, :a, :f, :d ].each{|i| player.choose(i)}
-      expect(player.choose(:i)).to eq('You lose. Game Over.')
+      expect(player.choose(:i)).to eq(lose_msg)
     end
 
     it 'is registered as a loss in any order' do
       [ :d, :c, :a, :f, :b ].each{|i| player.choose(i)}
-      expect(player.choose(:i)).to eq('You lose. Game Over.')
+      expect(player.choose(:i)).to eq(lose_msg)
     end
 
     it 'is registered as a loss in any order' do
       [ :d, :c, :b, :f, :a ].each{|i| player.choose(i)}
-      expect(player.choose(:i)).to eq('You lose. Game Over.')
+      expect(player.choose(:i)).to eq(lose_msg)
     end
 
   end
@@ -100,14 +101,5 @@ describe Player do
     end
 
   end
-
-  describe 'Invalid entry' do
-
-    it 'is flagged' do
-      expect{ player.choose(:k) }.to raise_error "Invalid Entry. Please try again."
-    end
-
-  end
-
 
 end
