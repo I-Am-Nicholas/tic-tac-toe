@@ -9,7 +9,7 @@ class Player < GameState
 
   def choose(choice)
     @plays << choice
-    log()
+    log(plays)
   end
 
 end

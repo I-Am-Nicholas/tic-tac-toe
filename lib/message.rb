@@ -21,7 +21,7 @@ class Message
   end
 
   def self.invalid_message
-    fail "Invalid Entry. Please try again."
+    raise "Invalid Entry. Please try again."
   end
 
 end

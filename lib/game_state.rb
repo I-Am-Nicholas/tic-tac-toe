@@ -1,10 +1,10 @@
-require_relative './check_combos.rb'
 require_relative './message.rb'
+require_relative './check_combos.rb'
 
 class GameState
   include WinningCombos
 
-  def log
+  def log(plays)
     @game_log = plays
     status_check()
   end
@@ -39,6 +39,8 @@ class GameState
     end
     false
   end
+
+private
 
   def player_one_playing?
     @game_log.size.odd?
