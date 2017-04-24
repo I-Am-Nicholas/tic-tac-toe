@@ -36,7 +36,7 @@ require './lib/player.rb'
 - The RSpec gem library is required for testing.
 
 
-## IN IRB...
+## IN a REPL...
 
 Nicholass-MacBook-Pro-2:tic-tac-toe Hyper$ cd lib
 
