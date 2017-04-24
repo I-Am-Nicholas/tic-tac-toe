@@ -53,4 +53,5 @@ private
   def player_two_log
     @game_log - player_one_log()
   end
+
 end

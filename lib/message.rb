@@ -1,14 +1,18 @@
 class Message
 
   def self.lose_message
+    Player.new
     "You lose. Game Over. New game."
   end
 
   def self.win_message
+    Player.new
+    GameState.new
     "You win. Game Over. New game."
   end
 
   def self.draw_message
+    Player.new
     "Draw. Game Over. New game."
   end
 
