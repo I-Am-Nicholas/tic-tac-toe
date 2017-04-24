@@ -28,15 +28,9 @@ The first play represents Player One's move, the second Player Two's, the third 
 
 ## DEPENDENCIES
 
-On the command line the following files are required, in this order, prior to feature testing:
+In your preferred REPL, from the directory where the main file lives, require player.rb for feature testing:
 
-require './message.rb'
-
-require './check_combos.rb'
-
-require './game_state.rb'
-
-require './player.rb'
+require './lib/player.rb'
 
 
 - The RSpec gem library is required for testing.
@@ -47,18 +41,6 @@ require './player.rb'
 Nicholass-MacBook-Pro-2:tic-tac-toe Hyper$ cd lib
 
 Nicholass-MacBook-Pro-2:lib Hyper$ irb
-
-2.3.1 :001 > require './message.rb'
-
- => true
-
-2.3.1 :002 > require './check_combos.rb'
-
- => true
-
-2.3.1 :003 > require './game_state.rb'
-
- => true
 
 2.3.1 :004 > require './player.rb'
 
